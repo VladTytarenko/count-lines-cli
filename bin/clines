@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+
+count_lines() {
+  CLI_SCRIPT_PATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+  JAR=$(ls ${CLI_SCRIPT_PATH}/../target/count-lines-cli-*-jar-with-dependencies.jar)
+  java -jar "${JAR}" "$@"
+}
+
+count_lines "$@"
